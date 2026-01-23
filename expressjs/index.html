@@ -1,0 +1,89 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Foydalanuvchi qo'shsish</h1>
+    <form action="">
+        <input type="text" placeholder="ismingizni kiriting" name="ism">
+        <button type="submit">ok</button>
+    </form>
+
+    <script>
+        const form = document.querySelector("form")
+        form.addEventListener('sumit', async(e)=>{
+            e.preventDefault()
+            const inputvalue = form.elements['ism'].value 
+            try {
+                const res = await fetch('http://localhost4200/users',{
+                                   method: "POST",
+                                   body: JSON.stringify({name: inputvalue})
+                })
+                const data = await res.json();
+                form.elements["ism"].value= ""
+                alert(data)
+            } catch (error) {
+                alert(error)
+            }
+        })
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Add</title>
+    <h1 id="userss"></h1>
+</head>
+<body>
+
+    <h1>Foydalanuvchi qo'shish</h1>
+
+    <form>
+        <input type="text" placeholder="Ismingizni kiriting" name="ism" required>
+         <input type="number" placeholder="age" name="yosh" required>
+        <button type="submit">OK</button>
+    </form>
+
+    <script>
+        const form = document.querySelector("form");
+        const h = document.getElementById('userss')
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const inputValue = form.elements["ism"].value;
+            const inputValuea = form.elements["yosh"].value
+            try {
+                const res = await fetch("http://localhost:3000/users", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name: inputValue,
+                        age: inputValuea
+                    })
+                });
+
+                const data = await res.json();
+                form.elements["ism"].value = "";
+                form.elements["yosh"].value= "";
+                alert("User added successfully!");
+
+              console.log(data);
+              
+            } catch (error) {
+                alert("Xatolik yuz berdi");
+                console.error(error);
+            }
+        });
+    </script>
+
+</body>
+</html>
