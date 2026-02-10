@@ -135,7 +135,6 @@ app.post("/users", (req, res) => {
   });
 });
 
-// ===== UPDATE USER BY ID =====
 app.put("/users/:id", (req, res) => {
   const id = Number(req.params.id);
   const { name, age } = req.body;
@@ -155,7 +154,7 @@ app.put("/users/:id", (req, res) => {
   });
 });
 
-// ===== DELETE USER BY ID =====
+
 app.delete("/users/:id", (req, res) => {
   const id = Number(req.params.id);
 
@@ -172,7 +171,6 @@ app.delete("/users/:id", (req, res) => {
   });
 });
 
-// ===== SERVER =====
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
