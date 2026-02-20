@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>User Upload</title>
+  </head>
+  <body>
+    <h2>odam yaratish</h2>
+
+    <form
+      action="http://localhost:4200/users"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <label>Name:</label>
+      <input type="text" name="name" required />
+      <br /><br />
+
+      <label>Age:</label>
+      <input type="number" name="age" required />
+      <br /><br />
+
+      <label>Avatar:</label>
+      <input type="file" name="avatar" />
+      <br /><br />
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
